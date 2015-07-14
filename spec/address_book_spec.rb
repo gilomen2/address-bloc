@@ -122,6 +122,17 @@ RSpec.describe AddressBook do
     end
   end
 
+  context "#nuke_em" do
+    it "deletes all the entries" do
+      book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+      book.add_entry('Grace Hopper', '010.012.1825', 'grace@hopper.com')
+      book.add_entry('Jean Bartik', '010.012.1815', 'jean@bartik.com')
+
+      book.entries.clear
+
+      expect(book.entries.size).to eq 0
+    end
+  end
 
 end
 
